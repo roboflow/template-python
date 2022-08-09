@@ -5,13 +5,13 @@ A template repo holding our common setup for a python project.
 
 You can install the package using pip
 
-```
+```bash
 pip install -e .
 ```
 
 or for development
 
-```
+```bash
 pip install -e ".[dev]"
 ```
 
