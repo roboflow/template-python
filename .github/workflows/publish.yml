@@ -27,12 +27,8 @@ jobs:
           pip install ".[dev]"
       - name: 🚀 Publish to PyPi
         env: 
-          TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
-          TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-          TWINE_TEST_PASSWORD: ${{ secrets.PYPI_TEST_PASSWORD }}
-
+          PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+          PYPI_TEST_PASSWORD: ${{ secrets.PYPI_TEST_PASSWORD }}
         run: |
-          python setup.py sdist bdist_wheel
-          twine upload -r testpypi dist/* -u $TWINE_USERNAME -p $TWINE_TEST_PASSWORD --verbose 
-          twine check dist/*
-          twine upload dist/* -u $TWINE_USERNAME -p $TWINE_PASSWORD --verbose 
+          make publish -e PYPI_USERNAME=$PYPI_USERNAME -e PYPI_PASSWORD=$PYPI_PASSWORD -e PYPI_TEST_PASSWORD=$PYPI_TEST_PASSWORD
