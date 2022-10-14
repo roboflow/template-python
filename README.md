@@ -57,7 +57,7 @@ We use [`twine`](https://twine.readthedocs.io/en/stable/) to make our life easie
 export PYPI_USERNAME="you_username"
 export PYPI_PASSWORD="your_password"
 export PYPI_TEST_PASSWORD="your_password_for_test_pypi"
-make publish
+make publish -e PYPI_USERNAME=$PYPI_USERNAME -e PYPI_PASSWORD=$PYPI_PASSWORD -e PYPI_TEST_PASSWORD=$PYPI_TEST_PASSWORD
 ```
 
 You can also use token for auth, see [pypi doc](https://pypi.org/help/#apitoken). In that case,
@@ -66,7 +66,7 @@ You can also use token for auth, see [pypi doc](https://pypi.org/help/#apitoken)
 export PYPI_USERNAME="__token__"
 export PYPI_PASSWORD="your_token"
 export PYPI_TEST_PASSWORD="your_token_for_test_pypi"
-make publish
+make publish -e PYPI_USERNAME=$PYPI_USERNAME -e PYPI_PASSWORD=$PYPI_PASSWORD -e PYPI_TEST_PASSWORD=$PYPI_TEST_PASSWORD
 ```
 
 **Note**: We will try to push to [test pypi](https://test.pypi.org/) before pushing to pypi, to assert everything will work
