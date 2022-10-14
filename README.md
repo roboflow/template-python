@@ -51,6 +51,11 @@ So far, **there is no types checking with mypy**. See [issue](https://github.com
 
 We use [GitHub actions](https://github.com/features/actions) to automatically run tests and check code quality when a new PR is done on `main`.
 
+On any pull request, we will check the code quality and tests.
+
+#### Publish on PyPi
+
+When a new release is created, we will try to push the new code to PyPi. We use [`twine`](https://twine.readthedocs.io/en/stable/) to make our life easier.
 
 # Q&A
 
