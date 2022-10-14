@@ -28,6 +28,7 @@ jobs:
           TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
           TWINE_PASSWORD: ${{ secrets.PASSWORD }}
         run: |
-          python setup.py sdist bdist_wheel
+          python -m build
+          twine upload -r testpypi dist/*
           twine check dist/*
           twine upload dist/*
