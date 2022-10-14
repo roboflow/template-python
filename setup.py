@@ -5,14 +5,14 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="template-python",  # Replace with your own username
+    name="template-python-zuppif",  
     version="0.0.1",
-    author="Roboflow",
-    author_email="jacob@roboflow.com",
+    author="zuppif",
+    author_email="francesco.zuppichini@gmail.com",
     description="<INSERT_DESCRIPTION>",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="<INSERT_URL>",
+    url="https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     install_requires=[
       # list your requires
     ],
