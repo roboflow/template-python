@@ -33,6 +33,6 @@ jobs:
           echo $TWINE_USERNAME
           echo $TWINE_PASSWORD
           python setup.py sdist bdist_wheel
-          twine upload -r testpypi dist/* -u $TWINE_USERNAME -p $TWINE_PASSWORD
+          twine upload -r testpypi dist/* -u $TWINE_USERNAME -p $TWINE_PASSWORD --verbose 
           twine check dist/*
-          twine upload dist/* -u $TWINE_USERNAME -p $TWINE_PASSWORD
+          twine upload dist/* -u $TWINE_USERNAME -p $TWINE_PASSWORD --verbose 
