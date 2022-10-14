@@ -30,8 +30,6 @@ jobs:
           TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
           TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
         run: |
-          echo $TWINE_USERNAME
-          echo $TWINE_PASSWORD
           python setup.py sdist bdist_wheel
           twine upload -r testpypi dist/* -u $TWINE_USERNAME -p $TWINE_PASSWORD --verbose 
           twine check dist/*
