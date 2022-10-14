@@ -1,6 +1,8 @@
 name: Publish WorkFlow
 
 on:
+  push:
+    branches: [main]
   release:
     types: [created]
 
