@@ -47,6 +47,8 @@ where = [ "src" ]
 target-version = "py39"
 
 line-length = 120
+format.indent-style = "space"
+format.quote-style = "double"
 lint.select = [
   "B",   # flake8-bugbear - https://docs.astral.sh/ruff/rules/#flake8-bugbear-b
   "D",   # pydocstyle - https://docs.astral.sh/ruff/rules/#pydocstyle-d
@@ -59,3 +61,9 @@ lint.select = [
   "W",   # pycodestyle warnings - https://docs.astral.sh/ruff/rules/#pycodestyle-e-w
 ]
 lint.isort.known-first-party = [ "sandbox" ]
+
+[tool.pytest.ini_options]
+addopts = [
+  "--color=yes",
+  "--doctest-modules",
+]

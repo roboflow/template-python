@@ -22,4 +22,4 @@ jobs:
       - name: 🦾 Install dependencies
         run: uv sync --dev
       - name: 🧪 Test
-        run: uv run pytest test/
+        run: uv run pytest test/ src/

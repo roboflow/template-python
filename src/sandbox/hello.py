@@ -2,5 +2,9 @@
 
 
 def hello() -> str:
-    """Return the string "World"."""
+    """Return the string "World".
+
+    >>> hello()
+    'World'
+    """
     return "World"
