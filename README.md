@@ -24,7 +24,6 @@ The project has the following structure
 │   └── workflows
 │       └── test.yml # holds our github action config
 ├── .gitignore
-├── Makefile
 ├── README.md
 ├── pyproject.toml
 ├── src
@@ -37,18 +36,13 @@ The project has the following structure
 
 ### Code Quality 🧹
 
-We provide two handy commands inside the `Makefile`, which both use `pre-commit` internally:
-
-- `make style` to format the code and run checks (using ruff)
-- `make check_code_quality` to check code quality (using ruff)
-
-We also use `pre-commit` to ensure code quality before each commit. You can install it using:
+We use `pre-commit` to ensure code quality. You can install it using:
 
 ```bash
 pre-commit install
 ```
 
-This will run the same checks as `make check_code_quality` on every commit. You can also run it manually on all files:
+You can run the checks manually on all files:
 
 ```bash
 pre-commit run --all-files
@@ -58,31 +52,32 @@ So far, **there is no types checking with mypy**. See [issue](https://github.com
 
 ### Tests 🧪
 
-[`pytests`](https://docs.pytest.org/en/7.1.x/) is used to run our tests.
+[`pytest`](https://docs.pytest.org/en/7.1.x/) is used to run our tests.
+
+```bash
+export PYTHONPATH=src
+pytest
+```
 
 ### Publish on PyPi 🚀
 
 **Important**: Before publishing, edit `__version__` in [src/sandbox/__init__.py](/src/sandbox/__init__.py) to match the wanted new version.
 
-We use [`twine`](https://twine.readthedocs.io/en/stable/) to make our life easier. You can publish by using
+We use [`twine`](https://twine.readthedocs.io/en/stable/) to upload our package.
 
-```
-export PYPI_USERNAME="you_username"
-export PYPI_PASSWORD="your_password"
-export PYPI_TEST_PASSWORD="your_password_for_test_pypi"
-make publish -e PYPI_USERNAME=$PYPI_USERNAME -e PYPI_PASSWORD=$PYPI_PASSWORD -e PYPI_TEST_PASSWORD=$PYPI_TEST_PASSWORD
-```
+```bash
+# Build the package
+python3 -m build
 
-You can also use token for auth, see [pypi doc](https://pypi.org/help/#apitoken). In that case,
+# Upload to TestPyPI (to verify everything is correct)
+# Note: For TestPyPI you need to use your TestPyPI credentials
+twine upload -r testpypi dist/* --verbose
 
-```
-export PYPI_USERNAME="__token__"
-export PYPI_PASSWORD="your_token"
-export PYPI_TEST_PASSWORD="your_token_for_test_pypi"
-make publish -e PYPI_USERNAME=$PYPI_USERNAME -e PYPI_PASSWORD=$PYPI_PASSWORD -e PYPI_TEST_PASSWORD=$PYPI_TEST_PASSWORD
+# Upload to PyPI
+twine upload dist/* --verbose
 ```
 
-**Note**: We will try to push to [test pypi](https://test.pypi.org/) before pushing to pypi, to assert everything will work
+**Note**: For authentication, we recommend using [API tokens](https://pypi.org/help/#apitoken). Set `TWINE_USERNAME` to `__token__` and `TWINE_PASSWORD` to your token value.
 
 ### CI/CD 🤖
 
