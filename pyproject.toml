@@ -43,8 +43,17 @@ line-length = 120
 target-version = "py39"
 
 [tool.ruff.lint]
-select = ["E", "F", "I", "W"]
-#ignore = ["D"]
+select = [
+    "E", # pycodestyle errors - https://docs.astral.sh/ruff/rules/#pycodestyle-e-w
+    "F", # pyflakes - https://docs.astral.sh/ruff/rules/#pyflakes-f
+    "I", # isort - https://docs.astral.sh/ruff/rules/#isort-i
+    "W", # pycodestyle warnings - https://docs.astral.sh/ruff/rules/#pycodestyle-e-w
+    "UP", # pyupgrade - https://docs.astral.sh/ruff/rules/#pyupgrade-up
+    "B", # flake8-bugbear - https://docs.astral.sh/ruff/rules/#flake8-bugbear-b
+    "SIM", # flake8-simplify - https://docs.astral.sh/ruff/rules/#flake8-simplify-sim
+    "N", # pep8-naming - https://docs.astral.sh/ruff/rules/#pep8-naming-n
+    "D", # pydocstyle - https://docs.astral.sh/ruff/rules/#pydocstyle-d
+]
 
 [tool.ruff.lint.isort]
 known-first-party = ["sandbox"]
