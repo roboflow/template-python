@@ -1,0 +1,20 @@
+name: "Feature Request"
+description: Suggest a feature
+title: "[Feature]: "
+labels: ["feature", "triage"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What problem does it solve?
+      placeholder: I'm frustrated when...
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Solution
+      description: Describe the feature.
+    validations:
+      required: true

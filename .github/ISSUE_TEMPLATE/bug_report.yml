@@ -1,0 +1,28 @@
+name: "Bug Report"
+description: Report a bug
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: textarea
+    id: bug
+    attributes:
+      label: Bug description
+      description: Expected vs. actual behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Minimal steps.
+      placeholder: |
+        1. ...
+        2. ...
+        See error.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment (optional)
+      description: OS, Python, toolchain.
