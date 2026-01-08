@@ -26,6 +26,6 @@ jobs:
           files: "dist/*"
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       - name: 🚀 Publish to PyPI
-        uses: pypa/gh-action-pypi-publish@v1.1.0
+        uses: pypa/gh-action-pypi-publish@v1.13.0
         with:
           password: ${{ secrets.PYPI_PASSWORD }}
