@@ -38,8 +38,13 @@ package-dir = {"" = "src"}
 [tool.setuptools.packages.find]
 where = ["src"]
 
-[tool.black]
+[tool.ruff]
 line-length = 120
+target-version = "py39"
 
-[tool.isort]
-profile = "black"
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+#ignore = ["D"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["sandbox"]
