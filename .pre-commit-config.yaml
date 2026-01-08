@@ -17,3 +17,11 @@ repos:
     rev: 1.0.0
     hooks:
       - id: mdformat
+  - repo: https://github.com/abravalheri/validate-pyproject
+    rev: v0.23
+    hooks:
+      - id: validate-pyproject
+  - repo: https://github.com/tox-dev/pyproject-fmt
+    rev: v2.9.0
+    hooks:
+      - id: pyproject-fmt
