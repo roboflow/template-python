@@ -1,59 +1,61 @@
 [build-system]
-requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
+requires = [ "setuptools>=61" ]
 
 [project]
 name = "sandbox-template"
-dynamic = ["version"]
-authors = [
-  { name="Roboflow", email="develop@roboflow.com" },
-]
 description = "Roboflow Python Sandbox Template"
 readme = "README.md"
-requires-python = ">=3.9"
 license = "MIT"
-classifiers = [
-    "Programming Language :: Python :: 3",
-    "Operating System :: OS Independent",
+authors = [
+  { name = "Roboflow", email = "develop@roboflow.com" },
 ]
-dependencies = []
+requires-python = ">=3.9"
+classifiers = [
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+]
+dynamic = [ "version" ]
+dependencies = [  ]
 
-[project.urls]
-"Homepage" = "https://roboflow.com"
+urls."Homepage" = "https://roboflow.com"
 
 [dependency-groups]
 dev = [
-    "pre-commit",
-    "twine",
-    "pytest",
-    "wheel",
+  "pre-commit",
+  "pytest",
+  "twine",
+  "wheel",
 ]
-
-[tool.setuptools.dynamic]
-version = {attr = "sandbox.__version__"}
 
 [tool.setuptools]
-package-dir = {"" = "src"}
+package-dir = { "" = "src" }
+
+[tool.setuptools.dynamic]
+version = { attr = "sandbox.__version__" }
 
 [tool.setuptools.packages.find]
-where = ["src"]
+where = [ "src" ]
 
 [tool.ruff]
-line-length = 120
 target-version = "py39"
 
-[tool.ruff.lint]
-select = [
-    "E", # pycodestyle errors - https://docs.astral.sh/ruff/rules/#pycodestyle-e-w
-    "F", # pyflakes - https://docs.astral.sh/ruff/rules/#pyflakes-f
-    "I", # isort - https://docs.astral.sh/ruff/rules/#isort-i
-    "W", # pycodestyle warnings - https://docs.astral.sh/ruff/rules/#pycodestyle-e-w
-    "UP", # pyupgrade - https://docs.astral.sh/ruff/rules/#pyupgrade-up
-    "B", # flake8-bugbear - https://docs.astral.sh/ruff/rules/#flake8-bugbear-b
-    "SIM", # flake8-simplify - https://docs.astral.sh/ruff/rules/#flake8-simplify-sim
-    "N", # pep8-naming - https://docs.astral.sh/ruff/rules/#pep8-naming-n
-    "D", # pydocstyle - https://docs.astral.sh/ruff/rules/#pydocstyle-d
+line-length = 120
+lint.select = [
+  "B",   # flake8-bugbear - https://docs.astral.sh/ruff/rules/#flake8-bugbear-b
+  "D",   # pydocstyle - https://docs.astral.sh/ruff/rules/#pydocstyle-d
+  "E",   # pycodestyle errors - https://docs.astral.sh/ruff/rules/#pycodestyle-e-w
+  "F",   # pyflakes - https://docs.astral.sh/ruff/rules/#pyflakes-f
+  "I",   # isort - https://docs.astral.sh/ruff/rules/#isort-i
+  "N",   # pep8-naming - https://docs.astral.sh/ruff/rules/#pep8-naming-n
+  "SIM", # flake8-simplify - https://docs.astral.sh/ruff/rules/#flake8-simplify-sim
+  "UP",  # pyupgrade - https://docs.astral.sh/ruff/rules/#pyupgrade-up
+  "W",   # pycodestyle warnings - https://docs.astral.sh/ruff/rules/#pycodestyle-e-w
 ]
-
-[tool.ruff.lint.isort]
-known-first-party = ["sandbox"]
+lint.isort.known-first-party = [ "sandbox" ]
