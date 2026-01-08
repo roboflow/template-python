@@ -28,6 +28,7 @@ urls."Homepage" = "https://roboflow.com"
 
 [dependency-groups]
 dev = [
+  "mypy",
   "pre-commit",
   "pytest",
   "twine",
@@ -67,3 +68,9 @@ addopts = [
   "--color=yes",
   "--doctest-modules",
 ]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
