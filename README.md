@@ -39,8 +39,8 @@ The project has the following structure
 
 We provide two handy commands inside the `Makefile`, which both use `pre-commit` internally:
 
-- `make style` to format the code and run checks
-- `make check_code_quality` to check code quality (PEP8 basically)
+- `make style` to format the code and run checks (using ruff)
+- `make check_code_quality` to check code quality (using ruff)
 
 We also use `pre-commit` to ensure code quality before each commit. You can install it using:
 
