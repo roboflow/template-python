@@ -1,0 +1,46 @@
+# Dependabot configuration file
+# Enables automated dependency updates for pip (individual PRs) and GitHub Actions (grouped PR).
+# Full documentation: https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+
+updates:
+  # Pip dependencies from pyproject.toml ([project].dependencies and [dependency-groups])
+  - package-ecosystem: pip
+    directory: "/"
+    target-branch: "main"
+    schedule:
+      interval: "weekly"
+      # day: "monday"  # Optional: Restrict to specific weekday
+    open-pull-requests-limit: 5  # Limit number of open PRs
+    rebase-strategy: "auto"  # Options: auto, safe, noop
+    labels:
+      - "dependencies"
+    versioning-strategy: "increase"  # lockfile-only, increase, increase-if-necessary
+    # Useful: Ignore outdated/unwanted packages
+    # ignore:
+    #   - dependency-name: "legacy-package"
+    # Useful: Periodically update lockfile even without dep changes (requires lockfile)
+    # lockfile-maintenance:
+    #   enabled: true
+
+  # GitHub Actions in .github/workflows/*.yml
+  - package-ecosystem: "github-actions"
+    directory: "/"  # Root; scans .github/**/workflow yml files
+    target-branch: "main"
+    schedule:
+      interval: "monthly"
+      # day: "monday"
+    open-pull-requests-limit: 5
+    rebase-strategy: "auto"
+    labels:
+      - "CI"
+    groups:
+      gha-updates:
+        patterns:
+          - "*"  # Groups ALL GitHub Actions updates into single PR
+
+# Additional notes:
+# - Pip updates: Individual PRs per package (no group).
+# - Reviews: Uses .github/CODEOWNERS automatically.
+# - Automerge: Enable via branch protection rules or 'automerge: true' (experimental).
