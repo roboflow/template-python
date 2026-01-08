@@ -56,8 +56,7 @@ So far, **there is no types checking with mypy**. See [issue](https://github.com
 [`pytest`](https://docs.pytest.org/en/7.1.x/) is used to run our tests.
 
 ```bash
-export PYTHONPATH=src
-pytest
+pytest . -v
 ```
 
 ### Publish on PyPi 🚀
