@@ -28,7 +28,6 @@ urls."Homepage" = "https://roboflow.com"
 
 [dependency-groups]
 dev = [
-  "mypy",
   "pre-commit",
   "pytest",
   "twine",
