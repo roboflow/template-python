@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sandbox-template"
+dynamic = ["version"]
+authors = [
+  { name="zuppif", email="francesco.zuppichini@gmail.com" },
+]
+description = "<INSERT_DESCRIPTION>"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = []
+
+[project.urls]
+"Homepage" = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+
+[dependency-groups]
+dev = [
+    "flake8",
+    "black==22.3.0",
+    "isort",
+    "twine",
+    "pytest",
+    "wheel",
+]
+
+[tool.setuptools.dynamic]
+version = {attr = "sandbox.__version__"}
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+profile = "black"

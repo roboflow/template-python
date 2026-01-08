@@ -1,4 +1,4 @@
-from src.hello import hello
+from sandbox.hello import hello
 
 
 def test_hello():
