@@ -49,7 +49,7 @@ You can run the checks manually on all files:
 pre-commit run --all-files
 ```
 
-So far, **there is no types checking with mypy**. See [issue](https://github.com/roboflow-ai/template-python/issues/4).
+We now use **mypy** for type checking. Type hints are enforced and checked automatically via pre-commit hooks.
 
 ### Tests 🧪
 

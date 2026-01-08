@@ -55,3 +55,8 @@ repos:
     rev: v2.4.1
     hooks:
       - id: codespell
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    # Static type checker
+    rev: v1.14.1
+    hooks:
+      - id: mypy
