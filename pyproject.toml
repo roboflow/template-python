@@ -6,9 +6,9 @@ build-backend = "setuptools.build_meta"
 name = "sandbox-template"
 dynamic = ["version"]
 authors = [
-  { name="zuppif", email="francesco.zuppichini@gmail.com" },
+  { name="Roboflow", email="develop@roboflow.com" },
 ]
-description = "<INSERT_DESCRIPTION>"
+description = "Roboflow Python Sandbox Template"
 readme = "README.md"
 requires-python = ">=3.9"
 license = "MIT"
@@ -19,7 +19,7 @@ classifiers = [
 dependencies = []
 
 [project.urls]
-"Homepage" = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+"Homepage" = "https://roboflow.com"
 
 [dependency-groups]
 dev = [
