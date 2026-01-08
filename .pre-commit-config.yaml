@@ -1,5 +1,22 @@
+# .pre-commit-config.yaml
+#
+# Pre-commit configuration for:
+# - Local git hooks: `pre-commit install` & `pre-commit run --all-files`
+# - pre-commit.ci bot: PR checks, auto hook updates, etc.
+#
+# Docs: https://pre-commit.ci/
+#
+ci:
+  autoupdate_schedule: monthly  # Monthly bot PRs to update hook revs
+  submodules: true  # Include git submodules in checks
+  autofix_commit_msg: |
+    [pre-commit.ci] auto fixes from pre-commit.com hooks
+    for more information, see https://pre-commit.ci  # Custom commit message for bot autofixes
+  skip: [~draft, ~WIP]  # Skip bot on PRs with these labels (regex prefix match)
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
+    # Basic file checks/fixes: whitespace, EOF, YAML/TOML validation, large files, security, symlinks
     rev: v6.0.0
     hooks:
       - id: trailing-whitespace
@@ -12,24 +29,29 @@ repos:
       - id: detect-private-key
       - id: check-symlinks
   - repo: https://github.com/astral-sh/ruff-pre-commit
+    # Python linter (ruff --fix) & formatter (ruff-format)
     rev: v0.14.10
     hooks:
       - id: ruff
         args: [ --fix ]
       - id: ruff-format
   - repo: https://github.com/hukkin/mdformat
+    # Markdown formatter (mdformat)
     rev: 1.0.0
     hooks:
       - id: mdformat
   - repo: https://github.com/abravalheri/validate-pyproject
+    # Validate pyproject.toml schema/content
     rev: v0.23
     hooks:
       - id: validate-pyproject
   - repo: https://github.com/tox-dev/pyproject-fmt
+    # Format pyproject.toml
     rev: v2.9.0
     hooks:
       - id: pyproject-fmt
   - repo: https://github.com/codespell-project/codespell
+    # Spell checker for code, comments, docs
     rev: v2.4.1
     hooks:
       - id: codespell
