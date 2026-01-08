@@ -1,5 +1,5 @@
 # Python Template 🐍
-A template repo holding our common setup for a python project.
+A template repo holding Roboflow's common setup for a python project.
 
 ## Installation
 
