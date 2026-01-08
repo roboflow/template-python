@@ -1,0 +1,13 @@
+# CODEOWNERS
+#
+# This file specifies which people or teams own code in this repository.
+# Directives are specified using one of the following forms:
+#
+#   * @org/team-name          # entire repo
+#   /path/to/file @user-name  # specific file
+#   /docs/**     @team-name   # all files in docs folder
+#   *.js         @js-owner    # all JS files
+#
+# See https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+#
+# Order is important; the last matching pattern takes precedence.
