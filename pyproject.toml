@@ -1,6 +1,6 @@
 [build-system]
 build-backend = "setuptools.build_meta"
-requires = [ "setuptools>=61" ]
+requires = [ "setuptools>=82.0.1" ]
 
 [project]
 name = "sandbox-template"
